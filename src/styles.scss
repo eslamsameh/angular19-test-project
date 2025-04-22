@@ -2,3 +2,10 @@
 
 /* Importing Bootstrap SCSS file. */
 @use "bootstrap/scss/bootstrap";
+
+:root {
+    --welcome-primary: #7f41ff;
+    --welcome-secondary: #f04e98;
+    --background-color-primary: #6452ed;
+    --background-color-secondary: #bb68c8;
+}

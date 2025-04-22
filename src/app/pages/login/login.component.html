@@ -1,51 +1,73 @@
-<div class="container">
-    <p-card header="Login">
-        <form [formGroup]="loginForm()" (ngSubmit)="onSubmit()">
-            <div class="p-fluid">
-                <!-- username Field -->
-                <div class="p-field mb-3">
-                    <label for="username">username</label>
-                    <input id="username" type="username" pInputText formControlName="username"
-                        placeholder="Enter your username" class="w-100" />
-                    @if (usernameControl()?.invalid && usernameControl()?.touched) {
-                    <div class="p-error">
-                        @if (usernameControl()?.hasError('required')) {
-                        <small class="p-error">username is required</small>
-                        }
-                    </div>
-
-                    }
-
-                </div>
-
-                <!-- Password Field -->
-                <div class="p-field mb-3">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" pInputText formControlName="password"
-                        placeholder="Enter your password" class="w-100" />
-
-                    @if (passwordControl()?.invalid && passwordControl()?.touched) {
-                    <div class="p-error">
-                        @if (passwordControl()?.hasError('required')) {
-                        <small class="p-error">Password is required</small>
-                        }
-
-                        @if (passwordControl()?.hasError('minlength')) {
-                        <small class="p-error">Minimum 6 characters</small>
-                        }
-
-                    </div>
-                    }
-                </div>
-
-                <!-- Submit Button -->
-                <button pButton type="submit" label="Login" class="w-full mt-2" [disabled]="loginForm().invalid"
-                    [loading]="loginLoading()"></button>
+<div class="wrapper">
+    <div class="container p-lg-5 py-5">
+        <div class="login-wrapper d-md-flex d-block">
+            <div class="welcome-section">
+                <h1>Welcome to website</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet
+                    dolore magna aliquam erat volutpat.
+                </p>
             </div>
-        </form>
-    </p-card>
 
+            <div class="form-section">
+                <p-card class="login-card">
+                    <form [formGroup]="loginForm()" (ngSubmit)="onSubmit()">
+                        <h2 class="login-title">User Login</h2>
 
-    <a href="" [routerLink]="['/register']">Register</a>
+                        <div class="mb-3">
+                            <div class="input-container"
+                                [class]="usernameControl()?.errors &&  usernameControl()?.touched ? 'border-error' : ''">
+                                <p-inputgroup class="align-items-center">
+                                    <i class="pi pi-user"></i>
+                                    <input type="text" pInputText formControlName="username" placeholder="Username" />
 
+                                </p-inputgroup>
+                            </div>
+                            @if (usernameControl()?.invalid && usernameControl()?.touched) {
+                            <div class="p-error">
+                                @if (usernameControl()?.hasError('required')) {
+                                <small class="p-error">User Name is required</small>
+                                }
+                            </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-container"
+                                [class]="passwordControl()?.errors &&  passwordControl()?.touched ? 'border-error' : ''">
+                                <p-inputgroup class="align-items-center">
+                                    <i class="pi pi-lock"></i>
+                                    <input type="password" pInputText formControlName="password"
+                                        placeholder="Password" />
+                                </p-inputgroup>
+                            </div>
+
+                            @if (passwordControl()?.invalid && passwordControl()?.touched) {
+                            <div class="p-error">
+                                @if (passwordControl()?.hasError('required')) {
+                                <small class="p-error">Password is required</small>
+                                }
+
+                                @if (passwordControl()?.hasError('minlength')) {
+                                <small class="p-error">Minimum 6 characters</small>
+                                }
+                            </div>
+                            }
+                        </div>
+
+                        <div class="d-flex justify-content-center items-center mb-3 w-100">
+                            <a class="register-link" [routerLink]="['/register']"> Don't have account ?</a>
+                        </div>
+
+                        <div class="d-flex justify-content-center items-center w-100">
+                            <button pButton type="submit" label="Login" icon="pi pi-log"
+                                class="gradient-btn mt-2 d-flex justify-content-center items-center"
+                                [disabled]="loginForm().invalid" [loading]="loginLoading()"></button>
+                        </div>
+                    </form>
+                </p-card>
+            </div>
+        </div>
+    </div>
 </div>

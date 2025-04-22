@@ -21,12 +21,13 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { buildLoginForm, toastFailLogin, toastSuccessLogin } from '@/forms';
+import { InputGroupModule } from 'primeng/inputgroup';
+
 import {
   loginAction,
   selectLoginFailure,
   selectLoginLoading,
   selectLoginSuccess,
-  loginReset,
 } from '@/store';
 
 @Component({
@@ -39,6 +40,7 @@ import {
     CardModule,
     ToastModule,
     RouterModule,
+    InputGroupModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
