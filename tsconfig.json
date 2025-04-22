@@ -3,7 +3,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/app/*"
+      ]
+    },
     "outDir": "./dist/out-tsc",
+    "useDefineForClassFields": false,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
