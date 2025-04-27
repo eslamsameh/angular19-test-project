@@ -27,5 +27,5 @@
 }
 
 ::ng-deep .p-carousel-indicator-active .p-carousel-indicator-button {
-    background: linear-gradient(135deg, var(--background-primary), var(--background-danger));
+    background: linear-gradient(135deg, var(--background-primary), var(--background-danger)) !important;
 }
