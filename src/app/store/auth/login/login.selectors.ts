@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { LoginState, UserProps } from '@/interface';
+import { LoginState } from '@/interface';
 
 export const selectLoginAuthState = createFeatureSelector<LoginState>('login');
 

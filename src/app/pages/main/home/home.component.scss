@@ -1,6 +1,6 @@
 .welcome-section {
     background: url('/assets/imgs/login-page.jpg');
-    min-height: 70vh;
+    min-height: 30vh;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -9,4 +9,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.header {
+    color: var(--background-primary);
 }

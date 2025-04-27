@@ -10,3 +10,4 @@ export interface BaseState {
 
 export * from './auth.interface';
 export * from './menu.interface';
+export * from './product.interface';

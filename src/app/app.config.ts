@@ -5,7 +5,12 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { loginReducer, LoginEffects } from '@/store';
+import {
+  loginReducer,
+  LoginEffects,
+  productsReducer,
+  ProductsEffects,
+} from '@/store';
 import { routes } from '@/app.routes';
 import { MessageService } from 'primeng/api';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -27,10 +32,10 @@ export const appConfig: ApplicationConfig = {
     }),
 
     // NgRx Store
-    provideStore({ login: loginReducer }),
+    provideStore({ login: loginReducer, products: productsReducer }),
 
     // NgRx Effects
-    provideEffects(LoginEffects),
+    provideEffects(LoginEffects, ProductsEffects),
     MessageService,
     provideHttpClient(withInterceptors([baseUrlInterceptor, authInterceptor])),
   ],
