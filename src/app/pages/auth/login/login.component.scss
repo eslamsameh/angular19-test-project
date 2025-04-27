@@ -1,5 +1,5 @@
 .wrapper {
-    background: linear-gradient(120deg, var(--background-color-primary), var(--background-color-secondary));
+    background: linear-gradient(120deg, var(--background-light-primary), var(--background-light-danger));
     min-height: 100vh;
 
     .login-wrapper {
@@ -64,7 +64,7 @@
 
                 .login-title {
                     text-align: center;
-                    color: var(--welcome-primary);
+                    color: var(--background-primary);
                     margin-bottom: 2rem;
                     font-size: 1.5rem;
                     font-weight: 600;
@@ -100,7 +100,7 @@
                 }
 
                 .register-link {
-                    color: var(--welcome-primary);
+                    color: var(--background-primary);
                     font-size: 0.875rem;
                     text-decoration: none;
                     cursor: pointer;
@@ -111,7 +111,7 @@
                 }
 
                 .gradient-btn {
-                    background: linear-gradient(135deg, var(--welcome-primary), var(--welcome-secondary));
+                    background: linear-gradient(135deg, var(--background-primary), var(--background-danger));
                     border: none;
                     color: var(--bs-light);
                     font-weight: 500;

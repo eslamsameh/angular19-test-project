@@ -4,8 +4,10 @@
 @use "bootstrap/scss/bootstrap";
 
 :root {
-    --welcome-primary: #7f41ff;
-    --welcome-secondary: #f04e98;
-    --background-color-primary: #6452ed;
-    --background-color-secondary: #bb68c8;
+    --background-primary: #7f41ff;
+    --background-danger: #f04e98;
+    --background-light-primary: #6452ed;
+    --background-light-danger: #bb68c8;
+    --background: #fff;
+
 }
