@@ -10,6 +10,10 @@ export const selectLoginSuccess = createSelector(
   }
 );
 
+export const selectUser = createSelector(selectLoginAuthState, (state) => {
+  return state.user;
+});
+
 export const selectLoginFailure = createSelector(
   selectLoginAuthState,
   (state) => state.error

@@ -1,4 +1,7 @@
 export interface MenuItem {
-  label: 'Home';
-  icon: 'pi pi-home';
+  label: string;
+  icon: string;
+  badge: string | undefined;
+  items: MenuItem[] | undefined;
+  path: string;
 }

@@ -6,6 +6,7 @@ export {
   selectLoginSuccess,
   selectLoginLoading,
   selectUserLogout,
+  selectUser,
 } from './auth/login/login.selectors';
 
 export {

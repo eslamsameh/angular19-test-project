@@ -1,0 +1,12 @@
+.welcome-section {
+    background: url('/assets/imgs/login-page.jpg');
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: var(--bs-light);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

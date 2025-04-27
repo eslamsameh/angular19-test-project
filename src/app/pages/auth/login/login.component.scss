@@ -130,4 +130,22 @@
             }
         }
     }
+
+    .back-container {
+        display: flex;
+        align-items: baseline;
+        position: absolute;
+        color: var(--background);
+        top: 10px;
+        cursor: pointer;
+        text-decoration: none;
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
 }

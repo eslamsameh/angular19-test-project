@@ -1,6 +1,6 @@
-<div class="card">
+<header class="card">
     <div class="container">
-        <p-menubar [model]="items">
+        <p-menubar [model]="items()">
             <ng-template #start>
                 <div class="log-container d-flex cursor-poniter align-items-center p-2">
                     <span class="logo rounded-left p-3">LOGO</span>
@@ -10,20 +10,43 @@
 
             </ng-template>
             <ng-template #item let-item let-root="root">
-                <a class="flex items-center p-menubar-item-link">
+                <a class="flex items-center p-menubar-item-link" [routerLink]="[item.path]"
+                    routerLinkActive="router-link-active">
                     <span>{{ item.label }}</span>
                     @if (item.items) {
                     <i [class]="['pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
                     }
-
                 </a>
             </ng-template>
             <ng-template #end>
-                <div class="d-flex align-items-center gap-2">
-                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-                        shape="circle" />
+                @if (user()) {
+                <div class="d-flex align-items-center gap-2 ">
+                    <p-avatar image="{{ user()?.image }}" shape="circle" (click)="overlayPanel.toggle($event)"
+                        class="cursor-pointer border rounded-circle" />
+                    <p-overlayPanel #overlayPanel>
+                        <div class="d-flex w-100 mb-1 panel-avatar-container align-items-center">
+                            <p-avatar image="{{ user()?.image }}" shape="circle" (click)="overlayPanel.toggle($event)"
+                                class="cursor-pointer border rounded-circle" />
+                            <p class="d-flex justify-content-center">{{user()?.firstName}} {{user()?.lastName}}</p>
+                        </div>
+                        <div class="w-100 border-bottom my-2"></div>
+                        <div class="flex flex-column" style="min-width: 150px;">
+                            <a class="dropdown-item my-3" routerLink="/profile"> <i class="pi pi-user"></i>Profile</a>
+                            <a class="dropdown-item my-3" routerLink="/profile"> <i
+                                    class="pi pi-shopping-cart"></i>Cart</a>
+                            <div class="w-100 border-bottom"></div>
+                            <a class="dropdown-item mt-3 cursor-pointer" (click)="logout()"> Sign out</a>
+                        </div>
+
+
+                    </p-overlayPanel>
                 </div>
+                } @else {
+                <a class="flex items-center p-menubar-item-link" [routerLink]="['/auth/login']"> <i
+                        class="pi pi-sign-in"></i>Login</a>
+                }
             </ng-template>
+
         </p-menubar>
     </div>
-</div>
+</header>

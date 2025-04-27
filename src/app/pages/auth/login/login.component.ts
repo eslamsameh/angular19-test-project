@@ -19,7 +19,7 @@ import { CardModule } from 'primeng/card';
 import { Store } from '@ngrx/store';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { buildLoginForm, toastFailLogin, toastSuccessLogin } from '@/forms';
 import { InputGroupModule } from 'primeng/inputgroup';
 
@@ -50,6 +50,7 @@ export class LoginComponent {
   private fb = inject(NonNullableFormBuilder);
   private store = inject(Store);
   private messageService = inject(MessageService);
+  private router = inject(Router);
   readonly loginSuccess = this.store.selectSignal(selectLoginSuccess);
   readonly loginError = this.store.selectSignal(selectLoginFailure);
   readonly loginLoading = this.store.selectSignal(selectLoginLoading);
@@ -62,6 +63,7 @@ export class LoginComponent {
     effect(() => {
       if (this.loginSuccess()) {
         this.messageService.add(toastSuccessLogin);
+        this.router.navigate(['']);
       }
 
       if (this.loginError()) {

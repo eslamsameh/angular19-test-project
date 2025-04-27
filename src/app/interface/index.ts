@@ -1,5 +1,5 @@
 export interface BaseEntity {
-  id?: string | number | undefined;
+  id: string | number | undefined;
 }
 
 export interface BaseState {
