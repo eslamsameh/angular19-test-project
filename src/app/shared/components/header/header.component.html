@@ -1,1 +1,29 @@
-<p>header works!</p>
+<div class="card">
+    <div class="container">
+        <p-menubar [model]="items">
+            <ng-template #start>
+                <div class="log-container d-flex cursor-poniter align-items-center p-2">
+                    <span class="logo rounded-left p-3">LOGO</span>
+                    <span class="mx-1 app-name"> APP NAME <span class="sub-app-name">EG</span></span>
+                    <div class="border-logo"></div>
+                </div>
+
+            </ng-template>
+            <ng-template #item let-item let-root="root">
+                <a class="flex items-center p-menubar-item-link">
+                    <span>{{ item.label }}</span>
+                    @if (item.items) {
+                    <i [class]="['pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
+                    }
+
+                </a>
+            </ng-template>
+            <ng-template #end>
+                <div class="d-flex align-items-center gap-2">
+                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                        shape="circle" />
+                </div>
+            </ng-template>
+        </p-menubar>
+    </div>
+</div>

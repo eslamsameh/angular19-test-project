@@ -9,3 +9,4 @@ export interface BaseState {
 }
 
 export * from './auth.interface';
+export * from './menu.interface';

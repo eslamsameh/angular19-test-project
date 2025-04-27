@@ -1,3 +1,5 @@
+@use "@/theme/functions.scss";
+
 .wrapper {
     background: linear-gradient(120deg, var(--background-light-primary), var(--background-light-danger));
     min-height: 100vh;
@@ -32,7 +34,7 @@
             padding: 4rem;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: functions.shadow(var(--box-shadow-color));
             justify-content: center;
 
             h1 {
@@ -60,7 +62,7 @@
                 width: 100%;
                 max-width: 400px;
                 border: none;
-                box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+                box-shadow: functions.shadow(var(--box-shadow-color));
 
                 .login-title {
                     text-align: center;

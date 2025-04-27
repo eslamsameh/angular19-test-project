@@ -1,0 +1,49 @@
+@use "@/theme/functions.scss";
+
+.log-container {
+    height: 4rem;
+
+    .logo {
+        background: linear-gradient(120deg, var(--background-light-primary), var(--background-light-danger));
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--background);
+        font-size: small;
+        font-weight: 700;
+        border-radius: 1rem 0rem 1rem 0rem;
+    }
+
+    .app-name {
+        font-weight: 700;
+        color: var(--background-primary);
+        position: relative;
+        padding-inline-end: 1rem;
+        font-size: 1.2rem;
+
+        .sub-app-name {
+            position: absolute;
+            font-size: 0.5rem;
+            top: 0;
+            color: gray;
+        }
+    }
+
+    .border-logo {
+        height: 100%;
+        border-inline-end: 2px solid var(--background-light-danger);
+    }
+}
+
+::ng-deep .p-menubar {
+    padding: 0px !important;
+    border: none !important;
+}
+
+
+.card {
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    box-shadow: functions.shadow(var(--box-shadow-color));
+}
