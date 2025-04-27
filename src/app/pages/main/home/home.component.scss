@@ -1,6 +1,8 @@
+@use "@/theme/functions.scss";
+
 .welcome-section {
     background: url('/assets/imgs/login-page.jpg');
-    min-height: 30vh;
+    min-height: 60vh;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -13,4 +15,17 @@
 
 .header {
     color: var(--background-primary);
+}
+
+.box-shadow {
+    box-shadow: 0 0px 2px var(--box-shadow-color);
+}
+
+.custom-btn {
+    background: linear-gradient(135deg, var(--background-primary), var(--background-danger));
+    border: none;
+}
+
+::ng-deep .p-carousel-indicator-active .p-carousel-indicator-button {
+    background: linear-gradient(135deg, var(--background-primary), var(--background-danger));
 }

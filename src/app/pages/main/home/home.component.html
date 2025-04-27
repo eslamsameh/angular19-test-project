@@ -1,54 +1,50 @@
 <main>
-    <div>
-        <div class="d-md-flex d-block ">
-            <div class="w-100 welcome-section">
-                <h1>Welcome to website</h1>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates vitae ab at aliquid rerum
-                    beatae
-                    doloribus, consequuntur sunt nostrum asperiores, officia est error hic earum aperiam rem atque,
-                    necessitatibus natus?
-                </p>
-            </div>
-
-
-
-        </div>
-    </div>
-
-    <div class="my-5">
-        <div class="container">
-            <h2 class="header">Top Products</h2>
-            @if (products()) {
-            <p-carousel [value]="products() ?? []" [numVisible]="3" [numScroll]="1"
-                [responsiveOptions]="responsiveOptions">
-                <ng-template let-product #item>
-                    <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4">
-                        <div class="mb-4">
-                            <div class="relative mx-auto">
-                                <img src={{product.thumbnail}} [alt]="product.name" class="w-full rounded-border" />
-                                <p-tag [value]="product.availabilityStatus" class="absolute"
-                                    styleClass="dark:!bg-surface-900" [style]="{ 'left.px': 5, 'top.px': 5 }"
-                                    [severity]="getSeverity(product.availabilityStatus)" />
-                            </div>
-                        </div>
-                        <div class="mb-4 font-medium">{{ product.title }}</div>
-                        <div class="flex justify-between items-center">
-                            <div class="mt-0 font-semibold text-xl">{{ '$' + product.price }}</div>
-                            <span>
-                                <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
-                                <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
-                            </span>
-                        </div>
-                    </div>
-                </ng-template>
-            </p-carousel>
-            }
-            @if (productsLoading()) {
-            <div class="d-flex justify-content-center">
-                <p-progressSpinner ariaLabel="loading" styleClass="w-4rem h-4rem" />
-            </div>
-            }
+    <div class="d-md-flex d-block ">
+        <div class="w-100 welcome-section">
+            <h1>Welcome to website</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates vitae ab at aliquid rerum
+                beatae
+                doloribus, consequuntur sunt nostrum asperiores, officia est error hic earum aperiam rem atque,
+                necessitatibus natus?
+            </p>
         </div>
     </div>
 </main>
+
+<section class="my-5">
+    <div class="container">
+        <h2 class="header">Top Products</h2>
+        @if (products()) {
+        <p-carousel [value]="products() ?? []" [numVisible]="3" [numScroll]="3" [circular]="true"
+            [responsiveOptions]="responsiveOptions()" autoplayInterval="3000">
+
+            <ng-template let-product #item>
+                <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4 box-shadow ">
+                    <div class="mb-4">
+                        <div class="relative mx-auto">
+                            <img src={{product.thumbnail}} [alt]="product.name" class="w-100 rounded" />
+                            <p-tag [value]="product.availabilityStatus"
+                                [severity]="getSeverity(product.availabilityStatus)" class="absolute"
+                                styleClass="dark:!bg-surface-900" [style]="{ 'left.px': 5, 'top.px': 5 }" />
+                        </div>
+                    </div>
+                    <div class="mb-4 font-medium">{{ product.title }}</div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="mt-0 font-semibold text-xl">{{ product.price | currency:'EUR' }}</div>
+                        <span>
+                            <button pButton icon="pi pi-heart" severity="secondary" [outlined]="true"></button>
+                            <button pButton icon="pi pi-shopping-cart" class="mx-2 custom-btn"></button>
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+        }
+        @if (productsLoading()) {
+        <div class="d-flex justify-content-center">
+            <p-progressSpinner ariaLabel="loading" styleClass="w-4rem h-4rem" />
+        </div>
+        }
+    </div>
+</section>

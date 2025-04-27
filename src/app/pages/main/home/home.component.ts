@@ -4,18 +4,18 @@ import {
   selectProducts,
   selectProductsFailure,
   selectProductsLoading,
-  selectProductsSuccess,
 } from '@/store';
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Carousel } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { Tag } from 'primeng/tag';
 import { ProgressSpinner } from 'primeng/progressspinner';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [Carousel, ButtonModule, Tag, ProgressSpinner],
+  imports: [Carousel, ButtonModule, Tag, ProgressSpinner, CurrencyPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   standalone: true,
@@ -25,11 +25,17 @@ export class HomeComponent {
   readonly productsLoading = this.store.selectSignal(selectProductsLoading);
   readonly productsError = this.store.selectSignal(selectProductsFailure);
   readonly products = this.store.selectSignal(selectProducts);
-  responsiveOptions: any[] | undefined;
+  responsiveOptions = signal<
+    {
+      breakpoint: string;
+      numVisible: number;
+      numScroll: number;
+    }[]
+  >([]);
 
   constructor() {
     this.store.dispatch(loadProducts());
-    this.responsiveOptions = [
+    this.responsiveOptions.set([
       {
         breakpoint: '1400px',
         numVisible: 2,
@@ -50,13 +56,13 @@ export class HomeComponent {
         numVisible: 1,
         numScroll: 1,
       },
-    ];
+    ]);
   }
 
-  public getSeverity(status: string) {
+  getSeverity(status: string) {
     switch (status.toUpperCase()) {
       case 'IN STOCK':
-        return 'success';
+        return 'info';
       case 'LOW STOCK':
         return 'warn';
       case 'OUT OF STOCK':
@@ -64,5 +70,8 @@ export class HomeComponent {
       default:
         return 'danger';
     }
+  }
+  getImage(product: ProductItem) {
+    product.images.find((v) => v === product.thumbnail);
   }
 }
