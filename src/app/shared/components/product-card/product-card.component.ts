@@ -5,6 +5,7 @@ import {
   input,
   signal,
   computed,
+  viewChild,
 } from '@angular/core';
 import { map } from 'rxjs';
 import { DebounceResizeDirective } from '@/shared/directives/debounce-resize.directive';
@@ -33,15 +34,12 @@ import { Image } from 'primeng/image';
 })
 export class ProductCardComponent implements AfterViewInit {
   product = input.required<ProductItem>();
-
-  @ViewChild('cardRef', { static: true })
-  resizeDirective!: DebounceResizeDirective;
-
-  smallView = signal<boolean>(true); // Use signal or observable depending on need
+  resizeDirective = viewChild<DebounceResizeDirective>('cardRef');
+  smallView = signal<boolean>(true);
 
   ngAfterViewInit() {
-    this.resizeDirective.width$
-      .pipe(map((width) => width >= 600))
+    this.resizeDirective()
+      ?.width$.pipe(map((width) => width >= 600))
       .subscribe((visible) => this.smallView.set(!visible));
   }
 
