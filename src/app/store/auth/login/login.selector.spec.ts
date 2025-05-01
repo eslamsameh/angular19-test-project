@@ -4,8 +4,9 @@ import {
   selectLoginFailure,
   selectLoginLoading,
   selectUserLogout,
+  selectUser,
 } from './login.selectors';
-import { LoginState } from '@/interface';
+import { LoginState, UserProps } from '@/interface';
 
 describe('LoginSelectors', () => {
   const initialState: LoginState = {
@@ -18,6 +19,25 @@ describe('LoginSelectors', () => {
   it('should select the login state', () => {
     const result = selectLoginAuthState.projector(initialState);
     expect(result).toEqual(initialState);
+  });
+
+  it('should select the login state', () => {
+    const user = {
+      firstName: 'Eslam',
+      accessToken: 'token',
+      email: 'example@ex.com',
+      gender: 'mail',
+      id: '1',
+      image: 'image-url',
+      lastName: 'Sameh',
+      refreshToken: 'refreshToken',
+      username: 'eslam',
+    };
+    const result = selectUser.projector({
+      ...initialState,
+      user: { ...(user as UserProps) },
+    });
+    expect(result).toEqual(user as UserProps);
   });
 
   it('should select login success', () => {

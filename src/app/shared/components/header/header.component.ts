@@ -28,6 +28,7 @@ import { MenuModule } from 'primeng/menu';
 export class HeaderComponent {
   private store = inject(Store);
   readonly user = this.store.selectSignal(selectUser);
+
   items = signal<MenuItem[]>([
     {
       label: 'Home',
@@ -66,10 +67,6 @@ export class HeaderComponent {
       ],
     },
   ]);
-  userMenuItems = [
-    { label: 'Profile', icon: 'pi pi-user', routerLink: '/profile' },
-    { label: 'Logout', icon: 'pi pi-sign-out', command: () => this.logout() },
-  ];
 
   logout() {}
 }

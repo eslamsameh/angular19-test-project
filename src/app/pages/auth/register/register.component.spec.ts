@@ -29,6 +29,6 @@ describe('RegisterComponent', () => {
     registerLink.click();
     const href = registerLink.getAttribute('href');
 
-    expect(href).toBe('/login');
+    expect(href).toBe('/auth/login');
   });
 });

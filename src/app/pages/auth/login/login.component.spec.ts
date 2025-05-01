@@ -147,12 +147,13 @@ describe('LoginComponent', () => {
   });
 
   it('should navigate to register page when Register link is clicked', () => {
-    const registerLink = fixture.debugElement.nativeElement.querySelector('a');
-    expect(registerLink).toBeTruthy();
+    const loginLink =
+      fixture.debugElement.nativeElement.querySelector('.register-link');
+    expect(loginLink).toBeTruthy();
 
-    registerLink.click();
-    const href = registerLink.getAttribute('href');
+    loginLink.click();
+    const href = loginLink.getAttribute('href');
 
-    expect(href).toBe('/register');
+    expect(href).toBe('/auth/register');
   });
 });
