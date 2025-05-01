@@ -1,8 +1,5 @@
 <div class="product-card" appDebounceResize #cardRef="debounceResize">
     @if (smallView()) {
-
-
-    } @else {
     <div class="rounded m-2 p-4 box-shadow">
         <div class="mb-4">
             <div class="position-relative mx-auto">
@@ -33,5 +30,45 @@
             </span>
         </div>
     </div>
+    } @else {
+
+    <div class="rounded px-2 box-shadow cursor-pointer">
+        <div class="d-flex align-items-center mb-5">
+            <div class="position-relative mx-auto d-flex">
+                <p-image [src]="product().thumbnail" [alt]="product().thumbnail"
+                    class="rounded object-fit-contain mt-4 me-3" [preview]="true" height="300" width="300" />
+                <p-tag [value]="product().availabilityStatus" [severity]="getSeverity(product().availabilityStatus)"
+                    class="position-absolute" styleClass="dark:!bg-surface-900" [style]="{ 'left.px': 5, 'top.px': 5 }">
+                </p-tag>
+            </div>
+            <div class="p-4">
+                <div class="mb-4 font-bold">{{ product().title }}</div>
+                <div class="mb-4 font-light">{{ product().description }}</div>
+
+                <div class="mb-4 d-flex">
+                    <p-tag [value]="product().category" styleClass="dark:!bg-surface-900" severity="danger">
+                        <i class="pi pi-bars"></i>
+                    </p-tag>
+                    <p-tag [value]="product().brand" styleClass="dark:!bg-surface-900 mx-2" severity="contrast">
+                        #
+                    </p-tag>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <p-rating [(ngModel)]="product().rating" />
+                </div>
+
+                <div class="mt-0 font-bold text-xl">{{ product().price | currency:'EUR':'symbol':'0.0-2' }}</div>
+
+                <div class="d-flex align-items-center justify-content-end">
+                    <button pButton icon="pi pi-heart" severity="secondary" [outlined]="true">Add To Wishlist</button>
+                    <button pButton icon="pi pi-shopping-cart" class="mx-2 custom-btn">Add To Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
     }
 </div>

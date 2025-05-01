@@ -23,4 +23,26 @@
     }
 
 
+
+    .font-bold {
+        font-weight: bold;
+    }
+
+    .font-light {
+        font-weight: 100;
+    }
+
+    .text-xl {
+        font-size: x-large;
+    }
+
+    ::ng-deep .p-image-preview:hover>.p-image-preview-mask {
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 6px;
+    }
+
+    .me-3 {
+        margin-inline-end: 3rem;
+    }
+
 }

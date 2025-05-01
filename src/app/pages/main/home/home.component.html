@@ -25,12 +25,15 @@
                 <app-product-card [product]="product"> </app-product-card>
             </ng-template>
         </app-carousel>
+        <div class="mt-5">
+
+            @for (product of products(); track $index) {
+            <app-product-card [product]="product"> </app-product-card>
+
+            }
+        </div>
         }
 
-        @for (product of products(); track $index) {
-        <app-product-card [product]="product"> </app-product-card>
-
-        }
         @if (productsLoading()) {
         <div class="d-flex justify-content-center">
             <p-progressSpinner ariaLabel="loading" styleClass="w-4rem h-4rem" />

@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { Tag } from 'primeng/tag';
 import { Rating } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { Image } from 'primeng/image';
 
 @Component({
   selector: 'app-product-card',
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     DebounceResizeDirective,
     Rating,
     FormsModule,
+    Image,
   ],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
@@ -35,12 +37,12 @@ export class ProductCardComponent implements AfterViewInit {
   @ViewChild('cardRef', { static: true })
   resizeDirective!: DebounceResizeDirective;
 
-  smallView = signal<boolean>(false); // Use signal or observable depending on need
+  smallView = signal<boolean>(true); // Use signal or observable depending on need
 
   ngAfterViewInit() {
     this.resizeDirective.width$
       .pipe(map((width) => width >= 600))
-      .subscribe((visible) => this.smallView.set(visible));
+      .subscribe((visible) => this.smallView.set(!visible));
   }
 
   getSeverity(status: string) {

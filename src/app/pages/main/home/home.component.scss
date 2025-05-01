@@ -16,3 +16,7 @@
 .header {
     color: var(--background-primary);
 }
+
+::ng-deep .p-overlay-mask {
+    background-color: var(--overlay-background);
+}
