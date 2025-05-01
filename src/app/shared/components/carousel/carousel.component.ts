@@ -1,4 +1,3 @@
-// carousel.component.ts
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 import {
   Component,

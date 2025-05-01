@@ -25,17 +25,4 @@ export class HomeComponent {
   constructor() {
     this.store.dispatch(loadProducts());
   }
-
-  getSeverity(status: string) {
-    switch (status.toUpperCase()) {
-      case 'IN STOCK':
-        return 'info';
-      case 'LOW STOCK':
-        return 'warn';
-      case 'OUT OF STOCK':
-        return 'danger';
-      default:
-        return 'danger';
-    }
-  }
 }

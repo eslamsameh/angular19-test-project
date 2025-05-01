@@ -11,6 +11,7 @@ import { UserProps } from './interface';
 const refreshToken = 'refresh-token';
 const accessToken = 'accessToken';
 const user: UserProps = {
+  id: undefined,
   accessToken: '',
   email: 'asd@asd.com',
   firstName: 'user1',
