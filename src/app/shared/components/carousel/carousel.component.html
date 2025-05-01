@@ -1,0 +1,8 @@
+<p-carousel [value]="data()" [numVisible]="3" [numScroll]="3" [circular]="true"
+    [responsiveOptions]="responsiveOptions()" [autoplayInterval]="3000">
+
+    <ng-template let-item pTemplate="item">
+        <ng-container [ngTemplateOutlet]="contentTemplate()"
+            [ngTemplateOutletContext]="{ $implicit: item }"></ng-container>
+    </ng-template>
+</p-carousel>

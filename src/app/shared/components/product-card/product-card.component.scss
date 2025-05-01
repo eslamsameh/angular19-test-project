@@ -1,0 +1,26 @@
+@use "@/theme/functions.scss";
+
+.product-card {
+
+
+    .box-shadow {
+        box-shadow: functions.shadow(var(--box-shadow-color));
+    }
+
+    .custom-btn {
+        background: linear-gradient(135deg, var(--background-primary), var(--background-danger));
+        border: none;
+    }
+
+    .p-tag {
+        top: 0;
+        left: 0;
+    }
+
+    .img {
+        width: 330px !important;
+        height: 330px !important;
+    }
+
+
+}

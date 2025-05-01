@@ -16,16 +16,3 @@
 .header {
     color: var(--background-primary);
 }
-
-.box-shadow {
-    box-shadow: 0 0px 2px var(--box-shadow-color);
-}
-
-.custom-btn {
-    background: linear-gradient(135deg, var(--background-primary), var(--background-danger));
-    border: none;
-}
-
-::ng-deep .p-carousel-indicator-active .p-carousel-indicator-button {
-    background: linear-gradient(135deg, var(--background-primary), var(--background-danger)) !important;
-}
