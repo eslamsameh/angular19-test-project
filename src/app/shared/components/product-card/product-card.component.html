@@ -1,21 +1,24 @@
 <div class="product-card" appDebounceResize #cardRef="debounceResize">
     @if (smallView()) {
     <div class="rounded m-2 p-4 box-shadow">
-        <div class="mb-4">
-            <div class="position-relative mx-auto">
-                <img [src]="product().thumbnail" [alt]="product().thumbnail"
-                    class="w-100 rounded object-fit-contain img">
+        <a [routerLink]="['/products/', product().id]">
+            <div class="mb-4">
+                <div class="position-relative mx-auto">
+                    <img [src]="product().thumbnail" [alt]="product().thumbnail"
+                        class="w-100 rounded object-fit-contain img">
 
-                <p-tag [value]="product().availabilityStatus" [severity]="getSeverity(product().availabilityStatus)"
-                    class="position-absolute" styleClass="dark:!bg-surface-900" [style]="{ 'left.px': 5, 'top.px': 5 }">
-                </p-tag>
+                    <p-tag [value]="product().availabilityStatus" [severity]="getSeverity(product().availabilityStatus)"
+                        class="position-absolute" styleClass="dark:!bg-surface-900"
+                        [style]="{ 'left.px': 5, 'top.px': 5 }">
+                    </p-tag>
 
-                <p-tag [value]="product().category" styleClass="dark:!bg-surface-900" severity="danger">
-                    <i class="pi pi-bars"></i>
-                </p-tag>
+                    <p-tag [value]="product().category" styleClass="dark:!bg-surface-900" severity="danger">
+                        <i class="pi pi-bars"></i>
+                    </p-tag>
+                </div>
             </div>
-        </div>
-        <div class="mb-4 font-medium">{{ product().title }}</div>
+            <div class="mb-4 font-medium">{{ product().title }}</div>
+        </a>
         <div class="mb-4 d-flex justify-content-between">
             <p-tag [value]="product().brand" styleClass="dark:!bg-surface-900" severity="contrast">
                 #
@@ -31,8 +34,7 @@
         </div>
     </div>
     } @else {
-
-    <div class="rounded px-2 box-shadow cursor-pointer">
+    <div class="rounded px-2 box-shadow">
         <div class="d-flex align-items-center mb-5">
             <div class="position-relative mx-auto d-flex">
                 <p-image [src]="product().thumbnail" [alt]="product().thumbnail"
@@ -42,8 +44,10 @@
                 </p-tag>
             </div>
             <div class="p-4">
-                <div class="mb-4 font-bold">{{ product().title }}</div>
-                <div class="mb-4 font-light">{{ product().description }}</div>
+                <a class="d-block" [routerLink]="['/products/', product().id]">
+                    <div class="mb-4 font-bold">{{ product().title }}</div>
+                    <div class="mb-4 font-light">{{ product().description }}</div>
+                </a>
 
                 <div class="mb-4 d-flex">
                     <p-tag [value]="product().category" styleClass="dark:!bg-surface-900" severity="danger">
@@ -63,12 +67,9 @@
                     <button pButton icon="pi pi-heart" severity="secondary" [outlined]="true">Add To Wishlist</button>
                     <button pButton icon="pi pi-shopping-cart" class="mx-2 custom-btn">Add To Cart</button>
                 </div>
-
             </div>
         </div>
 
     </div>
-
-
     }
 </div>

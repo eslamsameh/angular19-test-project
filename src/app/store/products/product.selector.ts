@@ -24,3 +24,10 @@ export const selectProductsLoading = createSelector(
   selectProductsState,
   (state) => state.loading
 );
+
+export const selectSingleProduct = createSelector(
+  selectProductsState,
+  (state) => {
+    return state.singleProduct;
+  }
+);

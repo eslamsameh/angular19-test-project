@@ -14,7 +14,11 @@ import {
 import { routes } from '@/app.routes';
 import { MessageService } from 'primeng/api';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { authInterceptor, baseUrlInterceptor } from '@/core/interceptors';
+import {
+  authInterceptor,
+  baseUrlInterceptor,
+  cacheRequestsInterceptor,
+} from '@/core/interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,6 +41,12 @@ export const appConfig: ApplicationConfig = {
     // NgRx Effects
     provideEffects(LoginEffects, ProductsEffects),
     MessageService,
-    provideHttpClient(withInterceptors([baseUrlInterceptor, authInterceptor])),
+    provideHttpClient(
+      withInterceptors([
+        baseUrlInterceptor,
+        authInterceptor,
+        cacheRequestsInterceptor,
+      ])
+    ),
   ],
 };

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { singleProductResolver } from '@/core/resolvers';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,17 @@ export const routes: Routes = [
           import('@/pages/main/home/home.component').then(
             (m) => m.HomeComponent
           ),
+      },
+      {
+        path: 'products/:id',
+        loadComponent: () =>
+          import('@/pages/main/single-product/single-product.component').then(
+            (m) => m.SingleProductComponent
+          ),
+        resolve: {
+          productLoaded: singleProductResolver,
+        },
+        title: '',
       },
     ],
     // all pages with header

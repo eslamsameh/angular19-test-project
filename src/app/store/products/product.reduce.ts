@@ -3,6 +3,8 @@ import {
   loadProducts,
   loadProductsFailure,
   loadProductsSuccess,
+  loadSingleProductSuccess,
+  loadSingleProduct,
 } from './product.action';
 import { ProductItem, ProductsState } from '@/interface';
 
@@ -11,6 +13,7 @@ export const initialState: ProductsState = {
   loading: false,
   isSuccess: false,
   error: null,
+  singleProduct: null,
 };
 
 export const productsReducer = createReducer(
@@ -27,5 +30,12 @@ export const productsReducer = createReducer(
     loading: false,
     error,
     isSuccess: false,
+  })),
+  on(loadSingleProduct, (state) => ({ ...state, loading: true })),
+  on(loadSingleProductSuccess, (state, { product }) => ({
+    ...state,
+    loading: false,
+    singleProduct: product,
+    isSuccess: true,
   }))
 );

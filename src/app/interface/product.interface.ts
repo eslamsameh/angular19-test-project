@@ -44,4 +44,5 @@ export interface ProductItem extends BaseEntity {
 
 export interface ProductsState extends BaseState {
   products: ProductItem[] | null;
+  singleProduct: ProductItem | null;
 }

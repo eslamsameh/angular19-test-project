@@ -12,6 +12,7 @@ describe('LoginReducer', () => {
     loading: false,
     error: null,
     isSuccess: false,
+    singleProduct: null,
   };
 
   it('should return the initial state', () => {

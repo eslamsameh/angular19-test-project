@@ -4,6 +4,8 @@ import {
   loadProducts,
   loadProductsSuccess,
   loadProductsFailure,
+  loadSingleProduct,
+  loadSingleProductSuccess,
 } from './product.action';
 import { catchError, map, mergeMap, of, take } from 'rxjs';
 import { ProductsService } from '@/services';
@@ -20,6 +22,20 @@ export class ProductsEffects {
         this.productsService.getProducts().pipe(
           map((data) => data.products.slice(0, 10)),
           map((products) => loadProductsSuccess({ products })),
+          catchError((error) => of(loadProductsFailure({ error })))
+        )
+      )
+    )
+  );
+
+  loadSinglePorduct$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadSingleProduct),
+      mergeMap(({ id }) =>
+        this.productsService.getSingleProducts(id).pipe(
+          map((product) => {
+            return loadSingleProductSuccess({ product });
+          }),
           catchError((error) => of(loadProductsFailure({ error })))
         )
       )

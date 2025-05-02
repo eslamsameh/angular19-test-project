@@ -1,21 +1,20 @@
 import {
   AfterViewInit,
   Component,
-  ViewChild,
   input,
   signal,
-  computed,
   viewChild,
 } from '@angular/core';
 import { map } from 'rxjs';
-import { DebounceResizeDirective } from '@/shared/directives/debounce-resize.directive';
+import { DebounceResizeDirective } from '@/shared/directives';
 import { ProductItem } from '@/interface';
-import { AsyncPipe, CurrencyPipe, NgIf } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { Tag } from 'primeng/tag';
 import { Rating } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { Image } from 'primeng/image';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -28,6 +27,7 @@ import { Image } from 'primeng/image';
     Rating,
     FormsModule,
     Image,
+    RouterLink,
   ],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',

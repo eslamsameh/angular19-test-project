@@ -6,12 +6,13 @@ import {
   selectProductsSuccess,
 } from './product.selector';
 
-describe('LoginSelectors', () => {
+describe('ProductsSelectors', () => {
   const initialState: ProductsState = {
     products: null,
     loading: false,
     error: null,
     isSuccess: false,
+    singleProduct: null,
   };
 
   it('should select the products state', () => {

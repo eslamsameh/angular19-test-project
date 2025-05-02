@@ -1,4 +1,3 @@
-// auth.interceptor.spec.ts
 import {
   HttpTestingController,
   provideHttpClientTesting,

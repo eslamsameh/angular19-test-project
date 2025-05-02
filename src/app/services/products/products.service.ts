@@ -12,4 +12,8 @@ export class ProductsService {
   getProducts(): Observable<any> {
     return this.httpClient.get(APIS_URL.GET_PRODUCTS);
   }
+
+  getSingleProducts(id: string): Observable<any> {
+    return this.httpClient.get(`${APIS_URL.GET_PRODUCTS}/${id}`);
+  }
 }

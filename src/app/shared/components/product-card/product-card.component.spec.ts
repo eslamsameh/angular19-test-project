@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductCardComponent } from './product-card.component';
-import { DebounceResizeDirective } from '@/shared/directives/debounce-resize.directive';
+import { DebounceResizeDirective } from '@/shared/directives/resize/debounce-resize.directive';
 import { signal } from '@angular/core';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
