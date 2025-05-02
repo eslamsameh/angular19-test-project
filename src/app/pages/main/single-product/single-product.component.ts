@@ -1,17 +1,23 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { ProductItem } from '@/interface';
+import { Component, inject, AfterViewInit, signal } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-product',
-  imports: [],
+  standalone: true,
   templateUrl: './single-product.component.html',
-  styleUrl: './single-product.component.scss',
+  styleUrls: ['./single-product.component.scss'],
 })
 export class SingleProductComponent implements AfterViewInit {
-  route = inject(ActivatedRoute);
+  private titleService = inject(Title);
+  private route = inject(ActivatedRoute);
+  product = signal<ProductItem | undefined>(undefined);
+  ngAfterViewInit(): void {
+    this.product.set(this.route.snapshot.data['productLoaded']);
 
-  ngAfterViewInit() {
-    const resolved = this.route.snapshot.data['productLoaded'];
-    console.log('Resolved product loaded?', resolved);
+    this.titleService.setTitle(
+      `Product - ${this.product()?.title}` || 'Product Not Found'
+    );
   }
 }

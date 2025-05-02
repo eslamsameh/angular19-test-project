@@ -23,7 +23,7 @@
                 <div class="d-flex align-items-center gap-2 ">
                     <p-avatar image="{{ user()?.image }}" shape="circle" (click)="overlayPanel.toggle($event)"
                         class="cursor-pointer border rounded-circle" />
-                    <p-overlayPanel #overlayPanel>
+                    <p-popover #overlayPanel>
                         <div class="d-flex w-100 mb-1 panel-avatar-container align-items-center">
                             <p-avatar image="{{ user()?.image }}" shape="circle" (click)="overlayPanel.toggle($event)"
                                 class="cursor-pointer border rounded-circle" />
@@ -37,9 +37,7 @@
                             <div class="w-100 border-bottom"></div>
                             <button class="dropdown-item mt-3 cursor-pointer" (click)="logout()">Sign out</button>
                         </div>
-
-
-                    </p-overlayPanel>
+                    </p-popover>
                 </div>
                 } @else {
                 <a class="flex items-center p-menubar-item-link" [routerLink]="['/auth/login']"> <i

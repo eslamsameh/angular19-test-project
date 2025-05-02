@@ -7,19 +7,18 @@ import { MenuItem } from '@/interface';
 import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectUser } from '@/store';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { MenuModule } from 'primeng/menu';
+import { PopoverModule } from 'primeng/popover';
 
 @Component({
   selector: 'app-header',
-
   imports: [
     Menubar,
     BadgeModule,
     AvatarModule,
     InputTextModule,
     RouterModule,
-    OverlayPanelModule,
+    PopoverModule,
     MenuModule,
   ],
   templateUrl: './header.component.html',
